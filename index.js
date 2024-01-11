@@ -142,8 +142,14 @@ console.log(isThereLongSong(exampleSongData, 310));
  * @param {Object[]} songs - An array of songs.
  * @returns {Object[]} Array of song objects with runtime in minutes.
  */
-function getSongsWithDurationInMinutes(songs) {}
-
+function getSongsWithDurationInMinutes(songs) {
+  return songs.map(song => {
+    song.durationInMinutes = song.runtimeInSeconds/60;
+    return song;
+  });
+    
+}
+console.log(getSongsWithDurationInMinutes(exampleSongData));
 // #8
 /**
  * Returns the album names in reverse alphabetical order.
