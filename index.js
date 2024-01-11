@@ -53,13 +53,67 @@ function categorizeSongsByRuntime(songs) {
 console.log(categorizeSongsByRuntime(exampleSongData));
 
 
+
+//Another Way to do this... by placing length within the object.
+// function categorizeSongsByRuntime(songs) {
+//   return {shortSongs: songs.filter(song => song.runtimeInSeconds < 180).length,
+//     mediumSongs: songs.filter(song => 180 <= song.runtimeInSeconds && song.runtimeInSeconds <= 300).length, 
+//     longSongs: songs.filter(song => 300 < song.runtimeInSeconds).length};
+// }
+
+
+
 // #4
 /**
  * Finds the album with the highest number of songs.
  * @param {Object[]} songs - An array of songs.
  * @returns {string} The name of the album with the most songs.
  */
-function findAlbumWithMostSongs(songs) {}
+
+function findAlbumWithMostSongs(songs) {
+  const albumNames = songs.map(song => song.album);
+  let countFreq = {};
+  albumNames.forEach(album => {
+    countFreq[album] = (countFreq[album] || 0) + 1;
+  });
+  let mostRepeatedAlbum = "";
+  let maxCount = 0;
+  for (const album in countFreq){
+    if (countFreq[album] > maxCount){
+      mostRepeatedAlbum = album;
+      maxCount = countFreq[album];
+    }
+  }
+  return mostRepeatedAlbum;
+}
+console.log(findAlbumWithMostSongs(exampleSongData));
+
+
+
+
+
+// function findAlbumWithMostSongs(songs) {
+//   const listOfAlbums = new Set(songs.map(song => song.album));
+//   let mostSongs = '';
+//   let currHighest = 0;
+//   Array.from(listOfAlbums).forEach(album =>{
+//     const songsInAlbum = songs.filter(song => song.album == album).length;
+//     if(songsInAlbum > currHighest){
+//       currHighest = songsInAlbum;
+//       mostSongs = album;
+//     }
+//   });
+//   return mostSongs;
+// }
+
+
+
+
+
+
+
+
+
 
 // #5
 /**
