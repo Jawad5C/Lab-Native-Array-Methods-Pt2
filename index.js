@@ -89,9 +89,6 @@ function findAlbumWithMostSongs(songs) {
 console.log(findAlbumWithMostSongs(exampleSongData));
 
 
-
-
-
 // function findAlbumWithMostSongs(songs) {
 //   const listOfAlbums = new Set(songs.map(song => song.album));
 //   let mostSongs = '';
@@ -105,13 +102,6 @@ console.log(findAlbumWithMostSongs(exampleSongData));
 //   });
 //   return mostSongs;
 // }
-
-
-
-
-
-
-
 
 
 
@@ -130,6 +120,7 @@ console.log(getFirstSongInAlbum(exampleSongData, "Bi-To Te-Pu"));
 
 
 
+
 // #6
 /**
  * Checks if there is at least one song longer than a specified runtime.
@@ -137,7 +128,13 @@ console.log(getFirstSongInAlbum(exampleSongData, "Bi-To Te-Pu"));
  * @param {number} runtime - The runtime to check against in seconds.
  * @returns {boolean} True if there is at least one song longer than the runtime.
  */
-function isThereLongSong(songs, runtime) {}
+function isThereLongSong(songs, runtime) {
+  let longSong = songs.find(song => song.runtimeInSeconds > runtime);
+   return longSong ? true : false;
+}
+
+console.log(isThereLongSong(exampleSongData, 310));
+
 
 // #7
 /**
