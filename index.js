@@ -40,9 +40,18 @@ console.log(getSongsFromAlbum(exampleSongData, "Bi-To Te-Pu"))
 
 //short below 180, medium anything greater or equal to 180 and below or equal to 300.Long one greater than 300.
 
-// function categorizeSongsByRuntime(songs) {
-//   songs.filter(song => song.runtimeInSeconds < 180).map.(song => song.runtimeInSeconds)
-// }
+function categorizeSongsByRuntime(songs) {
+  
+  let shortSongs = songs.filter(song => song.runtimeInSeconds < 180);
+  let mediumSongs = songs.filter(song => song.runtimeInSeconds >= 180 && song.runtimeInSeconds <= 300);
+  let longSongs = songs.filter(song => song.runtimeInSeconds > 300);
+  return {shortSongs: shortSongs.length,
+          mediumSongs: mediumSongs.length,
+          longSongs: longSongs.length
+          }
+}
+console.log(categorizeSongsByRuntime(exampleSongData));
+
 
 // #4
 /**
