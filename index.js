@@ -147,16 +147,27 @@ function getSongsWithDurationInMinutes(songs) {
     song.durationInMinutes = song.runtimeInSeconds/60;
     return song;
   });
-    
 }
 console.log(getSongsWithDurationInMinutes(exampleSongData));
+
+
+
 // #8
 /**
  * Returns the album names in reverse alphabetical order.
  * @param {Object[]} songs - An array of songs.
  * @returns {string[]} Array of album names in reverse alphabetical order.
  */
-function getAlbumsInReverseOrder(songs) {}
+function getAlbumsInReverseOrder(songs) {
+  let albumNames = new Set(songs.map(song => song.album));
+  return Array.from(albumNames).sort().reverse();
+}
+
+
+
+
+
+
 
 // #9
 /**
