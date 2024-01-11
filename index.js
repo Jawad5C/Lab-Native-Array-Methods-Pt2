@@ -26,7 +26,10 @@ console.log(getSortedTitles(exampleSongData));
  * @param {string} albumName - Name of the album.
  * @returns {string[]} An array of song titles.
  */
-function getSongsFromAlbum(songs, albumName) {}
+function getSongsFromAlbum(songs, albumName) {
+  return songs.filter(song => song.album === albumName).map(song => song.title);
+}
+console.log(getSongsFromAlbum(exampleSongData, "Bi-To Te-Pu"))
 
 // #3 
 /**
@@ -34,7 +37,12 @@ function getSongsFromAlbum(songs, albumName) {}
  * @param {Object[]} songs - An array of songs.
  * @returns {Object} An object with counts of short, medium, and long songs.
  */
-function categorizeSongsByRuntime(songs) {}
+
+//short below 180, medium anything greater or equal to 180 and below or equal to 300.Long one greater than 300.
+
+// function categorizeSongsByRuntime(songs) {
+//   songs.filter(song => song.runtimeInSeconds < 180).map.(song => song.runtimeInSeconds)
+// }
 
 // #4
 /**
