@@ -166,9 +166,6 @@ function getAlbumsInReverseOrder(songs) {
 
 
 
-
-
-
 // #9
 /**
  * Returns a list of song titles that contain a specific word.
@@ -176,7 +173,17 @@ function getAlbumsInReverseOrder(songs) {
  * @param {string} word - The word to search for in song titles.
  * @returns {string[]} An array of song titles containing the word.
  */
-function songsWithWord(songs, word) {}
+function songsWithWord(songs, word) {
+  return songs.map(song => {
+    if (song.title.includes(word) === true) {
+      return song.title;
+    }
+
+}
+
+console.log(songsWithWord(songs, "world"));
+
+
 
 // #10
 /**
@@ -185,7 +192,17 @@ function songsWithWord(songs, word) {}
  * @param {string} artistName - Name of the artist.
  * @returns {number} Total runtime in seconds.
  */
-function getTotalRuntimeOfArtist(songs, artistName) {}
+function getTotalRuntimeOfArtist(songs, artistName) {
+  songs.filter(song => {
+    if (song.artist === artistName){
+      song.runtimeInSeconds 
+      
+      )
+
+
+}
+
+
 
 // Problem #11
 /**
@@ -199,7 +216,12 @@ function printArtistsWithMultipleSongs(songs) {}
  * Logs the longest song title.
  * @param {Object[]} songs - An array of songs.
  */
-function printLongestSongTitle(songs) {}
+function printLongestSongTitle(songs) {
+  result = songs.find(song => {
+    if song.title.length
+  })
+
+}
 
 // Problem #13
 /**
@@ -207,7 +229,10 @@ function printLongestSongTitle(songs) {}
  * @param {Object[]} songs - An array of songs.
  * @returns {Object[]} Sorted array of songs.
  */
-function sortSongsByArtistAndTitle(songs) {}
+
+function sortSongsByArtistAndTitle(songs) {
+  return songs.forEach(song => song.artist).sort(song.title());
+}
 
 // Problem #14
 /**
@@ -215,7 +240,12 @@ function sortSongsByArtistAndTitle(songs) {}
  * @param {Object[]} songs - An array of songs.
  * @returns {Object} An object mapping each album to its total runtime.
  */
-function listAlbumTotalRuntimes(songs) {}
+function listAlbumTotalRuntimes(songs) {
+  return songs.map(song => song.album, song.totalRuntime)
+
+}
+
+
 
 // Problem #15
 /**
@@ -224,7 +254,13 @@ function listAlbumTotalRuntimes(songs) {}
  * @param {string} letter - The letter to search for.
  * @returns {Object|null} The first song object that matches the criterion or null.
  */
-function findFirstSongStartingWith(songs, letter) {}
+function findFirstSongStartingWith(songs, letter) {
+  return songs.find(song => (song.title[0] === letter)|| null);
+}
+
+findFirstSongStartingWith(exampleSongData, "B");
+
+
 
 // Problem #16
 /**
@@ -232,7 +268,20 @@ function findFirstSongStartingWith(songs, letter) {}
  * @param {Object[]} songs - An array of songs.
  * @returns {Object} An object mapping each artist to an array of their song titles.
  */
-function mapArtistsToSongs(songs) {}
+
+function mapArtistsToSongs(songs) {
+let artistMap = {};
+
+  songs.map(song => {
+    if(!artistMap.hasOwnProperty(song.artist)){
+      artistMap[song.artitst] = [song.title]
+    }
+    else {
+      artistMap[song.artitst].push(song, title);
+    })
+
+  return artistMap;
+}
 
 // Problem #17
 /**
@@ -242,19 +291,56 @@ function mapArtistsToSongs(songs) {}
  */
 function findAlbumWithLongestAverageRuntime(songs) {}
 
+
+
+
 // Problem #18
 /**
  * Logs song titles sorted by their runtime.
  * @param {Object[]} songs - An array of songs.
  */
-function printSongsSortedByRuntime(songs) {}
+function printSongsSortedByRuntime(songs) {
+  let songsSortedByRuntime = songs.sort((songA, songB) => songA.runtimeInSeconds - songB.runtimeInSeconds
+  );
+
+  songsSortedByRuntime.forEach(song => console.log(song.title);
+
+  //can it be done this way?   songs.sort((songA, songB) => songA.runtimeInSeconds - songB.runtimeInSeconds
+  // ).forEach(song => console.log(song.title);
+
+}
 
 // Problem #19
 /**
  * Prints a summary of each album, including its name, total runtime, and number of songs.
  * @param {Object[]} songs - An array of songs.
  */
-function printAlbumSummaries(songs) {}
+function printAlbumSummaries(songs) {
+  let albumSummaries = {};
+
+  songs.forEach(song => {
+    if(!albumSummaries[song.album]) {
+      albumSummaries[song.album] = {albumName: song.album, 
+        songCount: 1, 
+        totalRuntimeInSeconds
+      };
+    } else {
+      albumSummaries[song.album].songCount++;
+      albumSummaries[song.album].totalRuntime += song.runtimeInSeconds;
+    }
+    for(const summary in albumSummaries){
+      console.log(`${summary.albumNam}: ${summary,songCount}`)
+    }
+  });
+
+
+}
+
+
+
+
+
+
 
 // Problem #20
 /**
